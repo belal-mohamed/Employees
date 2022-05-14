@@ -11,12 +11,12 @@ using System.Threading.Tasks;
 
 namespace Employees.src.Application.Employees.Commands.EditEmployee
 {
-    public class EditEmployeeCommand : IRequest
+    public class EditEmployeeCommand : IRequest<int>
     {
         public EditEmployeeVm EmployeeVm { get; set; }
     }
 
-    public class EditEmployeeCommandHandler : IRequestHandler<EditEmployeeCommand>
+    public class EditEmployeeCommandHandler : IRequestHandler<EditEmployeeCommand,int>
     {
         private readonly IApplicationDbContext _context;
         private readonly IMapper _mapper;
@@ -26,7 +26,7 @@ namespace Employees.src.Application.Employees.Commands.EditEmployee
             _context = context;
             _mapper = mapper;
         }
-        public async Task<Unit> Handle(EditEmployeeCommand request, CancellationToken cancellationToken)
+        public async Task<int> Handle(EditEmployeeCommand request, CancellationToken cancellationToken)
         {
 
             var empVm = request.EmployeeVm;
@@ -44,7 +44,7 @@ namespace Employees.src.Application.Employees.Commands.EditEmployee
 
             await _context.SaveChangesAsync(cancellationToken);
 
-            return Unit.Value;
+            return employee.Id;
         }
     }
 

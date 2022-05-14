@@ -31,8 +31,7 @@ namespace Employees.src.Application.Employees.Commands.UploadEmployeePhoto
         }
         public async Task<string> Handle(UploadEmployeePhotoCommand request, CancellationToken cancellationToken)
         {
-            try
-            {
+
                 var file = request.File;
                 var folderName = Path.Combine(_hostEnvironment.WebRootPath, "Images");
                 var pathToSave = Path.Combine(Directory.GetCurrentDirectory(), folderName);
@@ -40,24 +39,17 @@ namespace Employees.src.Application.Employees.Commands.UploadEmployeePhoto
 
                 var fileName = Guid.NewGuid() + ContentDispositionHeaderValue.Parse(file.ContentDisposition).FileName.Trim('"');
                 var fullPath = Path.Combine(pathToSave, fileName);
-                //var dbPath = Path.Combine(folderName, fileName);
 
                 using (var stream = new FileStream(fullPath, FileMode.Create))
                 {
                     await file.CopyToAsync(stream);
                 }
 
-                //var emp = await _context.Employees.FindAsync(request.EmpId);
-                //emp.Image = fileName;
                 request.Employee.Image = fileName;
                 await _context.SaveChangesAsync(cancellationToken);
 
                 return fileName;
-            }
-            catch (Exception ex)
-            {
-                throw new Exception(ex.Message);
-            }
+            
 
             
         }

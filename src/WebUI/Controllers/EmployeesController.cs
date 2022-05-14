@@ -50,18 +50,16 @@ namespace Employees.src.WebUI.Controllers
             return Ok(await Mediator.Send(new CreateEmployeeCommand() { EmployeeVm = employeeVm }));
         }
 
-        [HttpPut("{id}")]
-        public async Task<IActionResult> EditEmployee(int id, EditEmployeeVm employeeVm)
+        [HttpPut]
+        public async Task<IActionResult> EditEmployee(EditEmployeeCommand request)
         {
-            employeeVm.Id = id;
-
-            return Ok(await Mediator.Send(new EditEmployeeCommand { EmployeeVm = employeeVm }));
+            return Ok(await Mediator.Send(request));
         }
 
-        [HttpDelete("{id}")]
-        public async Task<IActionResult> DeleteEmployee(int id)
+        [HttpDelete]
+        public async Task<IActionResult> DeleteEmployee([FromQuery] RemoveEmployeeCommand request)
         {
-            await Mediator.Send(new RemoveEmployeeCommand { Id = id });
+            await Mediator.Send(request);
 
             return NoContent();
         }

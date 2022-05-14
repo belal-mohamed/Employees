@@ -10,12 +10,12 @@ using System.Threading.Tasks;
 
 namespace Employees.src.Application.Employees.Commands.CreateEmployee
 {
-    public class CreateEmployeeCommand : IRequest
+    public class CreateEmployeeCommand : IRequest<int>
     {
         public CreateEmployeeVm EmployeeVm { get; set; }
     }
 
-    public class CreateEmployeeCommandHandler : IRequestHandler<CreateEmployeeCommand>
+    public class CreateEmployeeCommandHandler : IRequestHandler<CreateEmployeeCommand,int>
     {
         private readonly IApplicationDbContext _context;
         private readonly IMapper _mapper;
@@ -25,7 +25,7 @@ namespace Employees.src.Application.Employees.Commands.CreateEmployee
             _context = context;
             _mapper = mapper;
         }
-        public async Task<Unit> Handle(CreateEmployeeCommand request, CancellationToken cancellationToken)
+        public async Task<int> Handle(CreateEmployeeCommand request, CancellationToken cancellationToken)
         {
 
             var empVm = request.EmployeeVm;
@@ -38,7 +38,7 @@ namespace Employees.src.Application.Employees.Commands.CreateEmployee
 
             await _context.SaveChangesAsync(cancellationToken);
 
-            return Unit.Value; 
+            return employee.Id; 
         }
     }
 }

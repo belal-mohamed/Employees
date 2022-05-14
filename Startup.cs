@@ -1,5 +1,8 @@
 using Employees.src.Application.Common.Interfaces;
+using Employees.src.Application.Employees.Commands.RemoveEmployee;
 using Employees.src.Infrastructure.Persistence;
+using FluentValidation;
+using FluentValidation.AspNetCore;
 using MediatR;
 using Microsoft.AspNetCore.Builder;
 using Microsoft.AspNetCore.Hosting;
@@ -32,7 +35,9 @@ namespace Employees
         public void ConfigureServices(IServiceCollection services)
         {
 
-            services.AddControllers();
+            services.AddControllers()
+                .AddFluentValidation(x => x.RegisterValidatorsFromAssembly(Assembly.GetExecutingAssembly()));
+
             services.AddSwaggerGen(c =>
             {
                 c.SwaggerDoc("v1", new OpenApiInfo { Title = "Employees", Version = "v1" });
