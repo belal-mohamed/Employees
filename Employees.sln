@@ -7,7 +7,7 @@ Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "Employees", "Employees.cspr
 EndProject
 Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "tests", "tests", "{35466B72-C0F2-4549-9088-FA7A5BBB28D7}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Application.UnitTests", "..\Application.UnitTests\Application.UnitTests.csproj", "{63A363E6-4F76-4FB2-ADB7-4633921C72DC}"
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Application.IntegrationTest", "..\Application.IntegrationTest\Application.IntegrationTest.csproj", "{AAD46F16-30C8-430B-90BF-12D78706F78C}"
 EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
@@ -19,16 +19,16 @@ Global
 		{DC36F189-5380-491D-989B-CF0F00758250}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{DC36F189-5380-491D-989B-CF0F00758250}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{DC36F189-5380-491D-989B-CF0F00758250}.Release|Any CPU.Build.0 = Release|Any CPU
-		{63A363E6-4F76-4FB2-ADB7-4633921C72DC}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
-		{63A363E6-4F76-4FB2-ADB7-4633921C72DC}.Debug|Any CPU.Build.0 = Debug|Any CPU
-		{63A363E6-4F76-4FB2-ADB7-4633921C72DC}.Release|Any CPU.ActiveCfg = Release|Any CPU
-		{63A363E6-4F76-4FB2-ADB7-4633921C72DC}.Release|Any CPU.Build.0 = Release|Any CPU
+		{AAD46F16-30C8-430B-90BF-12D78706F78C}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{AAD46F16-30C8-430B-90BF-12D78706F78C}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{AAD46F16-30C8-430B-90BF-12D78706F78C}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{AAD46F16-30C8-430B-90BF-12D78706F78C}.Release|Any CPU.Build.0 = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE
 	EndGlobalSection
 	GlobalSection(NestedProjects) = preSolution
-		{63A363E6-4F76-4FB2-ADB7-4633921C72DC} = {35466B72-C0F2-4549-9088-FA7A5BBB28D7}
+		{AAD46F16-30C8-430B-90BF-12D78706F78C} = {35466B72-C0F2-4549-9088-FA7A5BBB28D7}
 	EndGlobalSection
 	GlobalSection(ExtensibilityGlobals) = postSolution
 		SolutionGuid = {6AAE895B-570D-4DFF-AA41-C85C99966D86}

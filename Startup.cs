@@ -1,3 +1,4 @@
+using Employees.src.Application.Common.Behaviours;
 using Employees.src.Application.Common.Interfaces;
 using Employees.src.Application.Employees.Commands.RemoveEmployee;
 using Employees.src.Infrastructure.Persistence;
@@ -66,6 +67,8 @@ namespace Employees
                     policy.AllowAnyMethod().AllowAnyHeader().WithOrigins("*");
                 });
             });
+
+            services.AddTransient(typeof(IPipelineBehavior<,>), typeof(ValidationBehaviour<,>));
         }
 
         // This method gets called by the runtime. Use this method to configure the HTTP request pipeline.

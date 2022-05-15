@@ -45,9 +45,9 @@ namespace Employees.src.WebUI.Controllers
 
         // Start Commands Apis
         [HttpPost]
-        public async Task<IActionResult> CreateEmployee(CreateEmployeeVm employeeVm)
+        public async Task<IActionResult> CreateEmployee(CreateEmployeeCommand request)
         {
-            return Ok(await Mediator.Send(new CreateEmployeeCommand() { EmployeeVm = employeeVm }));
+            return Ok(await Mediator.Send(request));
         }
 
         [HttpPut]

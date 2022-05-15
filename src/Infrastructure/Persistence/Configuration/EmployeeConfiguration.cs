@@ -16,18 +16,14 @@ namespace Employees.src.Infrastructure.Persistence.Configuration
                 .HasMaxLength(200)
                 .IsRequired();
 
-            builder.Property(t => t.Address.City)
-               .HasMaxLength(50)
-               .IsRequired();
+            builder.OwnsOne(p => p.Address)
+                            .Property(p => p.Street).IsRequired();
 
-            builder.Property(t => t.Address.Country)
-              .HasMaxLength(70)
-              .IsRequired();
+            builder.OwnsOne(p => p.Address)
+                            .Property(p => p.City).IsRequired();
 
-            builder.Property(t => t.Address.Street)
-             .HasMaxLength(150)
-             .IsRequired();
-
+            builder.OwnsOne(p => p.Address)
+                            .Property(p => p.Country).IsRequired();
         }
 
 

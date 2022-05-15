@@ -10,6 +10,11 @@ namespace Employees.src.Application.Employees.Commands.CreateEmployee
     {
         public CreateEmployeeCommandValidator()
         {
+
+            RuleFor(s => s.EmployeeVm)
+                .NotNull()
+                .WithMessage("Employee City Is Required");
+
             RuleFor(s => s.EmployeeVm.City)
                 .NotEmpty()
                 .WithMessage("Employee City Is Required");
